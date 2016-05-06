@@ -39,16 +39,17 @@ void Display(){
 void Delete(int n){
     struct Node* temp1 = head;
     int i;
-    if(n == 1){
+    
+    if(n == 1){ //delete node at the 1st position
         head = temp1->next; //head now points to 2nd Node
-        free(temp1);
-        return;
+        free(temp1); //free the memory pointed to by temp1
+        return; //local variable(temp1) gets cleared
     }
-    for(i = 0; i < n-2; i++)
+    for(i = 0; i < n - 2; i++)
         temp1 = temp1->next; //temp1 points to (n-1)th Node
     struct Node* temp2 = temp1->next; //nth Node
     temp1->next = temp2->next; //(n+1)th Node
-    free(temp2); //delete temp2;
+    free(temp2);  //free the memory pointed to by temp2
 }
 
 
